@@ -7,20 +7,20 @@ const Myself = {
     Height:5.7,
     email:'abc@gmail.com'
 };
-//console.log(Myself);
-//console.log(Myself.Name);
+console.log(Myself);
+console.log(Myself.Name);
 
 // Loops in JavaScript
-// const nums=[1,2,3,'four','five','six'];
+ const nums=[1,2,3,'four','five','six'];
 
 //For of Loop, used for arrays
-// for(let number of nums)
-//     console.log(number);
+for(let number of nums)
+    console.log(number);
 
 // For In Loop  used for objects;
 
-// for(let prop in Myself)
-//     console.log(prop);      // gives keys
+for(let prop in Myself)
+    console.log(prop);      // gives keys
 
 let nums2=Object.values(Myself);    //gives values of keys
 let nums3=Object.keys(Myself);      //gives keys 
