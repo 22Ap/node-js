@@ -10,14 +10,14 @@ const Myself = {
 console.log(Myself);
 console.log(Myself.Name);
 
-// Loops in JavaScript
- const nums=[1,2,3,'four','five','six'];
+//Loops in JavaScript
+const nums=[1,2,3,'four','five','six'];
 
 //For of Loop, used for arrays
 for(let number of nums)
     console.log(number);
 
-// For In Loop  used for objects;
+//For In Loop  used for objects;
 
 for(let prop in Myself)
     console.log(prop);      // gives keys
@@ -28,3 +28,5 @@ let nums4=Object.entries(Myself);   //gives both keys and values
 console.log(nums2);
 console.log(nums3);
 console.log(nums4);
+
+
