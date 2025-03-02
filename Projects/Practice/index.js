@@ -1,0 +1,10 @@
+const path = require("path");
+console.log(path.sep);
+console.log(process.env.PATH);
+console.log(path.delimiter);
+console.log("Anupam Kumar");
+const currPath=__filename;
+console.log(currPath);
+console.log(__dirname);
+let result=path.basename(currPath);
+console.log(result);
