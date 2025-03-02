@@ -1,13 +1,13 @@
 {
-  "name": "node-express-web",
-  "version": "1.0.0",
-  "description": "",
+  "name": "ampam",
+  "version": "1.0.1",
+  "description": "Hello",
   "main": "index.js",
   "scripts": {
     "dev": "nodemon index.js",
     "start": "node index.js"
   },
-  "author": "",
+  "author": "Anupam",
   "license": "ISC",
   "dependencies": {
     "ejs": "^3.1.9",
