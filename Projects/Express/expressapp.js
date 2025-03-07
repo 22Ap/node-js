@@ -21,12 +21,12 @@ app.use('/details',(req,res)=>{
     //either use template literals, or use strings for each line and concatenate them
 })
 app.get('/',(req,res)=>{
-    return res.send("Hello from Anupam's Home Page");
+    return res.send("Hello from Mr. Anupam's Home Page");
 })
 //res.send is used to send http respones
 
 app.get('/about',(req,res)=>{
-    return res.send("Jyada Puch tachh nahi Beta");
+    return res.send("Jyada Puchh tachh nahi Beta");
 })
 
 app.get('/contact',(req,res)=>{
