@@ -11,7 +11,8 @@ app.get('/',(req,res)=>{
 
 app.get('/rolldice',(req,res)=>{
     let randNumber=Math.floor(Math.random()*6)+1;
-    res.render("rolldice.ejs",{diceNumber:randNumber});
+    const avail=[1,2,3,4,5,6];  //is array ko hi bhej rhe ejs me
+    res.render("rolldice.ejs",{diceNumber:randNumber,avail});
 })  //diceNumber is key and randNumber is value;
 
 //agar key aur value variable dono ka name same rakhe to bas ek hi likhne ka jaruruat hai

@@ -6,9 +6,23 @@
     <title>Ludo Dice</title>
 </head>
 <body>
-    <h1>Number rolled on dice is : <%=diceNumber%></h1>
-    <!--we are getting the value randNumber through the key diceNumber-->
-    <!--Although if we had wished then we could have done that code here only-->
-    <!--But we wanted to have a taste of gettind data from database or any other source-->
+    <h1>Number rolled on dice is: <%= diceNumber %></h1>
+
+    <!--If else laga ke check kr rhe even and odd-->
+    <% if (diceNumber % 2 === 0) { %>
+        <h2>Nice! You Got Even Number</h2>
+    <% } %>
+
+    <% if (diceNumber % 2 === 1) { %>
+        <h2>Nice! You Got Odd Number</h2>
+    <% } %>
+    
+    <!--Loop laga ke peeche se jo array aaya hai uske items print kra rhe-->
+    <ul>
+        <h3>Range of dice is : </h3>
+        <% avail.forEach(function(item){ %>
+            <li type="square"><%= item %></li>
+        <% }) %>
+    </ul>
 </body>
 </html>
