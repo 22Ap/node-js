@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Instagram Layout</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #eaa9a9;
+    }
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .profile {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .profile h1 {
+      font-size: 24px;
+      margin: 10px 0;
+    }
+    .profile p {
+      font-size: 14px;
+      color: #555;
+    }
+    .posts {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+    .post {
+      background-color: #ccc;
+      height: 150px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      color: white;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Profile Section -->
+    <div class="profile">
+      <h1>@<%=username%></h1>
+      <p id="followers"></p>
+    </div>
+
+    <!-- Posts Section -->
+    <div class="posts" id="posts"></div>
+  </div>
+
+  <script>
+    // Function to generate a random number of followers
+    function generateFollowers() {
+      const followers = Math.floor(Math.random() * 10000) + 1; // Random number between 1 and 10,000
+      document.getElementById('followers').textContent = `${followers} followers`;
+    }
+
+    // Function to generate a random RGB color
+    function generateRandomColor() {
+      const r = Math.floor(Math.random() * 256); // Random red value (0-255)
+      const g = Math.floor(Math.random() * 256); // Random green value (0-255)
+      const b = Math.floor(Math.random() * 256); // Random blue value (0-255)
+      return `rgb(${r}, ${g}, ${b})`;
+    }
+
+    // Function to generate posts with random colors
+    function generatePosts() {
+      const postsContainer = document.getElementById('posts');
+      for (let i = 1; i <= 9; i++) {
+        const post = document.createElement('div');
+        post.className = 'post';
+        post.style.backgroundColor = generateRandomColor();
+        post.textContent = i;
+        postsContainer.appendChild(post);
+      }
+    }
+
+    // Call the functions to generate followers and posts
+    generateFollowers();
+    generatePosts();
+  </script>
+</body>
+</html>
