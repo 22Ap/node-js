@@ -26,6 +26,17 @@ app.get('/insta/:username',(req,res)=>{
     res.render("insta.ejs",{username});
 });//we can omit .ejs extension while rendering
 
+app.get('/anista/:username',(req,res)=>{
+    let {username}=req.params;
+    const anistadata=require('./data.json') //it loads everytime this route is accessed
+    //for better performnace we can move it at top if file does not changes frequently;
+    const data=anistadata[username];
+    if (!data) {
+        return res.status(404).send("User not found!");
+    }//dealing with users who are not present in databse
+    res.render("anista",{data});
+})
+
 app.listen(port,host,()=>{
     console.log(`server started at http://${host}:${port}`);
 })

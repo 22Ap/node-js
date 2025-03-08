@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>insta for Animals</title>
+    <style>
+        .post {
+    display: inline-block;  /* Keeps images and text together */
+    text-align: center;     /* Centers the text under the image */
+    margin: 10px;           /* Adds space between posts */
+    }
+    img {
+        height: 120px;
+        width: 180px;
+        display: block;  /* Makes sure the image stays above the text */
+    }
+    p {
+        margin-top: 5px;  /* Adds spacing between image and text */
+    }
+
+    </style>
+</head>
+<body>
+    <h1>This Page belongs to @<%=data.name%></h1>
+    <h5>Followers : <%=data.followers%> &nbsp; &nbsp; Following : <%=data.following%></h5>
+    <hr>
+    <h4>Posts</h4>
+    <!--fetching images one by one
+        <img src="<%=data.posts[0].image%>" alt="any image"/>
+        <img src="<%=data.posts[1].image%>" alt="any image"/>
+        <img src="<%=data.posts[2].image%>" alt="any image"/>
+    but this methis is not recommended-->
+
+    <!--if there are many images and we don't wanna to 
+    fetch images one by one then we can use for loop or 
+    for each method of javascript to fetch images-->
+
+    <% for (let post of data.posts) { %>
+        <div class="post">
+            <img src="<%= post.image %>" alt="some img"/>
+            <p>Likes: <%= post.likes %><br> Comments: <%= post.comments %></p>
+        </div>
+    <% } %>
+    
+    
+</body>
+</html>
