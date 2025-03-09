@@ -27,9 +27,13 @@ p1.sing=function(){
     console.log(`${this.name} is singing a song`);
 };
 
-p2.__proto__.dance=function(){
+p2.__proto__.dance=function(){      //not recommended
     console.log(`${this.name} is dancing`);
 };
-
 p1.dance();
 
+
+//Since p2.__proto__ points to Person.prototype, 
+//adding a method here modifies the actual prototype itself.
+//That means all instances (p1, p2, etc.) will inherit 
+//the new method—even if we originally wanted it only for p2.
