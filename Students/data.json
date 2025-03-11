@@ -9011,11 +9011,12 @@
   {
     "first_name": "Anupam",
     "last_name": "Kumar",
-    "email": "anu@gmail.com",
+    "email": "anupam@gmail.com",
     "gender": "Male",
     "department": "CSE",
-    "salary": "$5100",
-    "id": 1002
+    "salary": "$5300",
+    "id": 1002,
+    "_method": "PATCH"
   },
   {
     "first_name": "Anupam",

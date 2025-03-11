@@ -4,6 +4,7 @@ const host='0.0.0.0';
 
 const app=express();
 app.use(express.urlencoded({extended : true})); //Parses form data from req.body
+//extended true helps in parsing nested objects and arrays
 app.use(express.json());    //parses json data
 
 
