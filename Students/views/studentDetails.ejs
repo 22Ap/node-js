@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Details</title>
+    <link rel="stylesheet" href="/styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e7b9b9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .card {
+            background: rgb(229, 234, 152);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            width: 350px;
+            text-align: center;
+        }
+        .card h2 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+        .card p {
+            margin: 8px 0;
+            font-size: 16px;
+            color: #555;
+        }
+        .card .label {
+            font-weight: bold;
+            color: #222;
+        }
+        .back-btn {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 15px;
+            background-color: #007BFF;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .back-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h2>Student Details</h2>
+        <p><span class="label">ID:</span> <%= student.id %></p>
+        <p><span class="label">First Name:</span> <%= student.first_name %></p>
+        <p><span class="label">Last Name:</span> <%= student.last_name %></p>
+        <p><span class="label">Email:</span> <%= student.email %></p>
+        <p><span class="label">Gender:</span> <%= student.gender %></p>
+        <p><span class="label">Department:</span> <%= student.department %></p>
+        <p><span class="label">Salary:</span> <%= student.salary %></p>
+        <a href="/students" class="back-btn">Back to Students</a>
+    </div>
+
+</body>
+</html>

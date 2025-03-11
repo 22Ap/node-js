@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Details</title>
+    <link rel="stylesheet" href="/styles.css">  <!-- Make sure this path is correct -->
+</head>
+<body>
+    <h2>Student Details</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Gender</th>
+                <th>Department</th>
+                <th>Salary</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% students.forEach(student => { %>
+                <tr>
+                    <td><%= student.id %></td>
+                    <td><%= student.first_name %></td>
+                    <td><%= student.last_name %></td>
+                    <td><%= student.email %></td>
+                    <td><%= student.gender %></td>
+                    <td><%= student.department %></td>
+                    <td><%= student.salary %></td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+</body>
+</html>
