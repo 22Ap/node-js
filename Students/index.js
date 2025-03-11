@@ -1,8 +1,13 @@
 const express=require('express');
 const path=require('path');
+const fs = require('fs'); // Required to modify JSON file
 const port=8080;
 
 const app=express();
+
+//to get data from req body in post methods
+app.use(express.urlencoded({extended : true}));
+app.use(express.json());
 
 //enables rendering ejs files
 app.set("view engine", "ejs");
@@ -33,6 +38,35 @@ app.get('/students/:id', (req, res) => {
     } else {
         res.status(404).send("Student not found");  //student id not found in the file
     }
+});
+
+//route to add a new student
+app.get('/student/add',(req,res)=>{
+    res.render("studentAdd");
+})
+
+
+
+
+app.post('/studentadd', (req, res) => {
+    const newStud = req.body;
+
+    // Find the last student's ID and increment it
+    const lastStudent = students[students.length - 1];
+    newStud.id = lastStudent ? lastStudent.id + 1 : 1;
+
+    students.push(newStud); // Add new student to array
+
+    // Write updated data back to data.json
+    fs.writeFile('./data.json', JSON.stringify(students, null, 2), (err) => {
+        if (err) {
+            console.error(err);
+            return res.status(500).send("Error saving data.");
+        }
+
+        // Send success message and new student's ID
+        res.render("success", { studentId: newStud.id });
+    });
 });
 
 
