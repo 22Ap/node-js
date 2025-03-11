@@ -7056,15 +7056,6 @@
     "salary": "500"
   },
   {
-    "id": 785,
-    "first_name": "Dannie",
-    "last_name": "Compford",
-    "email": "dcompfordls@intel.com",
-    "gender": "Male",
-    "department": "Support",
-    "salary": "500"
-  },
-  {
     "id": 786,
     "first_name": "Rodrick",
     "last_name": "Opie",
@@ -9007,25 +8998,6 @@
     "department": "God",
     "salary": "$5100",
     "id": 1001
-  },
-  {
-    "first_name": "Anupam",
-    "last_name": "Kumar",
-    "email": "anupam@gmail.com",
-    "gender": "Male",
-    "department": "CSE",
-    "salary": "$5300",
-    "id": 1002,
-    "_method": "PATCH"
-  },
-  {
-    "first_name": "Anupam",
-    "last_name": "Kumar",
-    "email": "anu@gmail.com",
-    "gender": "Male",
-    "department": "CSE",
-    "salary": "$5100",
-    "id": 1003
   },
   {
     "first_name": "Bomgesh",

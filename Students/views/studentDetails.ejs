@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,6 +16,7 @@
             height: 100vh;
             margin: 0;
         }
+
         .card {
             background: rgb(229, 234, 152);
             padding: 20px;
@@ -23,46 +25,119 @@
             width: 350px;
             text-align: center;
         }
+
         .card h2 {
             margin-bottom: 10px;
             color: #333;
         }
+
         .card p {
             margin: 8px 0;
             font-size: 16px;
             color: #555;
         }
+
         .card .label {
             font-weight: bold;
             color: #222;
         }
-        .back-btn {
-            display: inline-block;
-            margin-top: 15px;
-            padding: 10px 15px;
-            background-color: #007BFF;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
+
+        .button-container {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
         }
+
+        .btn {
+            flex: 1;
+            padding: 10px;
+            text-align: center;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            border-radius: 5px;
+            margin: 5px;
+            cursor: pointer;
+            border: none;
+        }
+
+        .back-btn {
+            background-color: #007BFF;
+        }
+
         .back-btn:hover {
             background-color: #0056b3;
         }
+
+        .delete-btn {
+            background-color: red;
+        }
+
+        .delete-btn:hover {
+            background-color: darkred;
+        }
     </style>
 </head>
+
 <body>
 
     <div class="card">
         <h2>Student Details</h2>
-        <p><span class="label">ID:</span> <%= student.id %></p>
-        <p><span class="label">First Name:</span> <%= student.first_name %></p>
-        <p><span class="label">Last Name:</span> <%= student.last_name %></p>
-        <p><span class="label">Email:</span> <%= student.email %></p>
-        <p><span class="label">Gender:</span> <%= student.gender %></p>
-        <p><span class="label">Department:</span> <%= student.department %></p>
-        <p><span class="label">Salary:</span> <%= student.salary %></p>
-        <a href="/students" class="back-btn">Back to Students</a>
+        <p><strong>ID:</strong>
+            <%= student.id %>
+        </p>
+        <p><strong>First Name:</strong>
+            <%= student.first_name %>
+        </p>
+        <p><strong>Last Name:</strong>
+            <%= student.last_name %>
+        </p>
+        <p><strong>Email:</strong>
+            <%= student.email %>
+        </p>
+        <p><strong>Gender:</strong>
+            <%= student.gender %>
+        </p>
+        <p><strong>Department:</strong>
+            <%= student.department %>
+        </p>
+        <p><strong>Salary:</strong> $<%= student.salary %>
+        </p>
+
+        <div class="button-container">
+            <a href="/students" class="btn back-btn">Back to Students</a>
+            <button class="btn delete-btn" id="deleteStudent">Delete Student</button>
+        </div>
     </div>
 
+    <script>
+        document.getElementById("deleteStudent").addEventListener("click", () => {
+            const studentId = "<%= student.id %>"; // Get student ID
+
+            fetch(`/students/${studentId}`, {
+                method: "DELETE"
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("Failed to delete student");
+                    }
+                    return response.json(); // ✅ Parse JSON only if response is OK
+                })
+                .then(data => {
+                    if (data.success) {
+                        window.location.href = data.redirect; // ✅ Redirect after deletion
+                    } else {
+                        alert("Failed to delete student");
+                    }
+                })
+                .catch(error => {
+                    console.error("Error:", error);
+                    alert("Error deleting student");
+                });
+        });
+
+    </script>
+
 </body>
+
 </html>
